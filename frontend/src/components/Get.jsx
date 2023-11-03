@@ -10,8 +10,17 @@ export default function Get(props) {
  const baseURL=props.url
 function gettata() {
   
+
+// const theURL="http://localhost:5000"
+const theURL="https://todo.egysnakes.com"
+
+
   console.log('run');
-  axios.get(`https://todo.egysnakes.com/${baseURL}`)
+  axios.get(`${theURL}/${baseURL}`,{
+    headers: {
+      'Origin': 'https://egysnakes.com',
+    }
+  })
   .then(response => {
     setTasks(response.data);
   })
@@ -25,7 +34,7 @@ function delet(params) {
   setTasks(null)
   
 }
-console.log(tasks);
+// console.log(tasks);
 
   return (
     <div style={{borderStyle:"solid"}}>
